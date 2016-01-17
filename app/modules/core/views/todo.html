@@ -1,0 +1,51 @@
+<section>
+  <div class="page-header">
+    <h1 id="home-h1" style="font-family:Georgia,Serif;color:#fff;">
+      <span class="orange-text text-darken-4"> Todo </span> List <span class="red-text text-accent-4"> ! </span>
+    </h1>
+
+    <div class="text-danger text-center" style="font-size: 1.5em;" ng-show="message">{{ message }}</div>
+
+  </div>
+  <div id="home-content">
+
+    <div class="row">
+      <form class="col s12">
+        <div class="row">
+          <div class="input-field col s12 center">
+            <input type="text" id="newTask" name="newTask" class="validate white-text" ng-model="newTodoList">
+            <label for="newTask">New Task</label>
+            <button type="submit" name="addTask" class="newTaskButton btn" ng-disabled="myForm.addTask.$invalid" ng-click="newTask()">New task!</button>
+          </div>
+        </div>
+      </form>
+    </div>
+
+    <div class="row" style="border: 1px solid grey;padding: 10px;">
+      <table class="responsive-table white-text">
+        <thead>
+        <tr>
+          <th> </th> <!--checkbox-->
+          <th data-field="#">#</th> <!--index-->
+          <th data-field="Task">Task</th>
+          <th data-field="Date added">Date added</th>
+          <th data-field="Action">Action</th>
+        </tr>
+        </thead>
+
+        <tbody>
+        <tr class="done-{{todo.done}}" ng-repeat="(key, todo) in todoList">
+          <td> <input type="checkbox" ng-model="todo.done"> </td>
+          <td>{{$index + 1}}</td>
+          <td>{{ todo.task }}</td>
+          <td>{{ todo.date | date:'medium' }}</td>
+          <td>
+            <button ng-click="deleteTask(key)" class="btn-danger"> <i class="glyphicon glyphicon-trash"></i> </button>
+          </td>
+        </tr>
+        </tbody>
+      </table>
+    </div>
+
+  </div>
+</section>

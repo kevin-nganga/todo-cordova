@@ -1,0 +1,58 @@
+<section>
+  <div class="page-header">
+    <h1 id="home-h1" style="font-family:Georgia,Serif;color:#fff;">
+      <span class="orange-text text-darken-4"> Register </span> First <span class="red-text text-accent-4"> ! </span>
+      <p>Enter your details to get started:</p>
+    </h1>
+
+    <div class="text-danger text-center" style="font-size: 1.5em;" ng-show="message">{{ message }}</div>
+
+  </div>
+  <div id="home-content">
+
+    <div class="row">
+      <form class="col s12" name="myForm" novalidate ng-submit="register()">
+
+        <div class="row">
+          <div class="input-field col l6 m6 s12">
+            <input type="text" name="firstname" class="form-control white-text" id="user-firstname"
+                   ng-required="true" ng-model="user.firstname">
+            <p class="has-error text-center text-danger" ng-show="myForm.firstname.$invalid && myForm.firstname.$touched">First Name is required</p>
+            <label for="user-firstname">First Name</label>
+          </div>
+
+          <div class="input-field col l6 m6 s12">
+            <input type="text" name="lastname" class="form-control white-text" id="user-lastname"
+                   ng-required="true" ng-model="user.lastname">
+            <p class="has-error text-center text-danger" ng-show="myForm.lastname.$invalid && myForm.lastname.$touched">Last Name is required</p>
+            <label for="user-lastname">Last Name</label>
+          </div>
+        </div>
+
+        <div class="row">
+          <div class="input-field col l6 m6 s12">
+            <input type="email" name="email" class="form-control white-text" id="user-email"
+                   ng-required="true" ng-model="user.email">
+            <p class="has-error text-center text-danger" ng-show="myForm.email.$invalid && myForm.email.$touched">Must be a valid email</p>
+            <label for="user-email">Email</label>
+          </div>
+
+          <div class="input-field col l6 m6 s12">
+            <input type="password" name="password" class="form-control white-text" id="user-password"
+                   ng-required="true" ng-model="user.password">
+            <p class="has-error text-danger text-center" ng-show="myForm.password.$invalid && myForm.password.$touched">Password is required</p>
+            <label for="user-password">Password</label>
+          </div>
+        </div>
+
+        <div class="center">
+          <button class="btn waves-effect waves-light grey darken-3 center" type="submit" ng-disabled="myForm.$invalid">Register !
+            <i class="material-icons right">send</i>
+          </button>
+        </div>
+
+      </form>
+    </div>
+
+  </div>
+</section>

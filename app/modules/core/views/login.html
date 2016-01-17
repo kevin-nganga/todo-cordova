@@ -1,0 +1,41 @@
+<section>
+  <div class="page-header">
+      <h1 id="home-h1" style="font-family:Georgia,Serif;color:#fff;">
+        <span class="orange-text text-darken-4"> Login </span> First <span class="red-text text-accent-4"> ! </span>
+      </h1>
+
+    <div class="text-danger text-center" style="font-size: 1.5em;" ng-show="message">{{ message }}</div>
+
+  </div>
+  <div id="home-content">
+
+    <div class="row">
+      <form class="col s12" name="myForm" novalidate ng-submit="login()">
+
+        <div class="row">
+          <div class="input-field col l6 m6 s12">
+            <input type="email" name="email" class="orange-text form-control" id="user-email"
+                   ng-required="true" ng-model="user.email" autocomplete="off">
+            <p class="has-error text-center text-danger" ng-show="myForm.email.$invalid && myForm.email.$touched">Must be a valid email</p>
+            <label for="user-email">Email</label>
+          </div>
+        </div>
+
+        <div class="row">
+          <div class="input-field col l6 m6 s12">
+            <input type="password" name="password" class="orange-text form-control" id="user-password"
+                   ng-required="true" ng-model="user.password">
+            <p class="has-error text-danger text-center" ng-show="myForm.password.$invalid && myForm.password.$touched">Password is required</p>
+            <label for="user-password">Password</label>
+          </div>
+        </div>
+
+        <button class="btn waves-effect waves-light cyan darken-3" type="submit" ng-disabled="myForm.$invalid">Log me in !
+          <i class="material-icons right">send</i>
+        </button>
+
+      </form>
+    </div>
+
+  </div>
+</section>
